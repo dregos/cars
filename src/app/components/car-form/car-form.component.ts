@@ -3,6 +3,8 @@ import { CarsService } from '../../shared/services/cars.service';
 
 import { Car } from '../../shared/models/car.model';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-car-form',
   templateUrl: './car-form.component.html'
@@ -11,9 +13,10 @@ export class CarFormComponent implements OnInit {
 
   public years: number[] = [];
   public engineTypes : string[] = [];
-  private newCar: Car = new Car();
+  public newCar: Car = new Car();
 
-  constructor(private carsService: CarsService) { }
+  constructor(private carsService: CarsService,
+              private router:Router) { }
 
   ngOnInit() {
     this.years = this.generateYearList(1990, 2017);
@@ -27,6 +30,13 @@ export class CarFormComponent implements OnInit {
         years.push(i);
     }
     return years;
+  }
+
+  public addCar(){
+
+    this.carsService.addCar(this.newCar);
+    this.newCar = new Car();
+    this.router.navigate(['cars']);
   }
 
 }

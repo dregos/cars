@@ -1,6 +1,7 @@
 <h1>New car</h1>
 <hr>
-<form #carForm="ngForm" (ngSubmit)="addCar(newCar); carForm.reset();">
+<form #carForm="ngForm" (ngSubmit)="addCar(); carForm.reset();">
+	
 	<div class="form-group">
 		<label>Mark</label>
 		<input name="mark" #mark="ngModel" [(ngModel)]="newCar.mark"
@@ -94,4 +95,11 @@
 		</div>
 	</div>
 
+	<button type="button" class="btn btn-primary" [disabled]="carForm.pristine"
+				(click)="carForm.reset();">
+		Reset
+	</button>
+	<button type="submit" class="btn btn-success " [disabled]="!carForm.valid">
+		Save
+	</button>
 </form>

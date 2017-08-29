@@ -1,6 +1,6 @@
 export let engineTypes = ['diesel', 'hybrid', 'petrol', 'electric'];
 
-export let cars = [
+export let carsList = [
 	{
     id : 1,
     mark : 'Audi',
