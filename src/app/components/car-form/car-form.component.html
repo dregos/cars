@@ -1,6 +1,6 @@
 <h1>New car</h1>
 <hr>
-<form #carForm="ngForm" (ngSubmit)="addCar(); carForm.reset();">
+<form #carForm="ngForm">
 
 	<div class="form-group">
 		<label>Mark</label>
@@ -108,8 +108,14 @@
           <p>Model:{{newCar.model}} ({{newCar.year}})</p>
 					<p>
 						Max speed:{{newCar.maxSpeed}}
+					</p>
+					<p>
 						Automatic:{{newCar.isAutomatic ? 'Yes':'No'}}
+					</p>
+					<p>
 						Engine:{{newCar.engine}}
+					</p>
+					<p>
 						Number of doors:{{newCar.numberOfDoors}}
 					</p>
         </div>
@@ -119,7 +125,6 @@
 					</button>
         </div>
       </div>
-
     </div>
   </div>
 
@@ -130,7 +135,12 @@
 				(click)="carForm.reset();">
 		Reset
 	</button>
-	<button type="submit" class="btn btn-success " [disabled]="!carForm.valid">
+	<button *ngIf="router.url.includes('add');" type="submit" class="btn btn-success " [disabled]="!carForm.valid"
+	(click)="addCar(); carForm.reset();">
+		Add
+	</button>
+	<button *ngIf="router.url.includes('edit');" type="submit" class="btn btn-success " [disabled]="!carForm.valid"
+	(click)="saveCar();">
 		Save
 	</button>
 </form>

@@ -26,6 +26,7 @@
       <td class="align-middle">{{ car.engine }}</td>
       <td class="align-middle">{{ car.numberOfDoors }}</td>
 			<td><button class="btn btn-danger btn-sm" (click)="remove(car)">Remove</button></td>
+			<td><a [routerLink]="['/edit', car.id]" class="btn btn-info" role="button">Edit</a></td>
 		</tr>
 	</tbody>
 </table>

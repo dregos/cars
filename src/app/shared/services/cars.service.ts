@@ -43,4 +43,8 @@ export class CarsService {
     this.cars.splice(index,1);
   }
 
+  public getCarById(id){
+    return this.cars.find(car => car['id'] == id);
+  }
+
 }
