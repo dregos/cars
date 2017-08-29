@@ -11,7 +11,7 @@ export class Car {
   public maxSpeed: number;
   public isAutomatic: boolean;
   public engine: string;
-  public numberOfDoors:string;
+  public numberOfDoors:number;
 
 
   //private carsService : CarsService;

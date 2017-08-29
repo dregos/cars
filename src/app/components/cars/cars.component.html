@@ -5,6 +5,7 @@
 	<thead>
 		<tr>
 			<th>Mark</th>
+			<th>Model</th>
 			<th>Year</th>
 			<th>Max speed</th>
       <th>Automatic</th>
@@ -16,9 +17,12 @@
 	<tbody>
 		<tr *ngFor="let car of cars">
 			<td class="align-middle"><a [routerLink]="['/cars', car.id]">{{ car.mark }}</a></td>
+			<td class="align-middle">{{ car.model }}</td>
 			<td class="align-middle">{{ car.year }}</td>
       <td class="align-middle">{{ car.maxSpeed }}</td>
-      <td class="align-middle">{{ car.isAutomatic }}</td>
+      <td class="align-middle" style="text-align:center;">
+				<input class="form-check-input" type="checkbox" [checked]="car.isAutomatic" disabled>
+			</td>
       <td class="align-middle">{{ car.engine }}</td>
       <td class="align-middle">{{ car.numberOfDoors }}</td>
 			<td><button class="btn btn-danger btn-sm" (click)="remove(contact)">Remove</button></td>

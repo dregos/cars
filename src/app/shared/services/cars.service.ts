@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { cars } from '../../components/cars/cars-src';
+import { cars, engineTypes } from '../../components/cars/cars-src';
 
 @Injectable()
 export class CarsService {
@@ -12,6 +12,10 @@ export class CarsService {
     //console.log("cars:");
     //console.log(cars);
     return cars;
+  }
+
+  public getEngineTypes(){
+    return engineTypes;
   }
 
 }
