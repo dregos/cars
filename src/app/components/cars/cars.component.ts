@@ -18,6 +18,9 @@ export class CarsComponent implements OnInit {
   ngOnInit() {
   }
 
-
+  public remove(car:Car){
+    this.carsService.removeCar(car);
+    this.cars = this.carsService.getCars();
+  }
 
 }

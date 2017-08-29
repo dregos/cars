@@ -12,9 +12,6 @@ export class CarsService {
   }
 
   public getCars(){
-    //console.log("cars:");
-    //console.log(cars);
-
     return this.cars;
   }
 
@@ -38,7 +35,12 @@ export class CarsService {
     let lastCar = this.cars.length;
     newCar.id = this.cars[lastCar-1].id + 1;
     this.cars.push(newCar);
-    console.log(this.cars);
+    //console.log(this.cars);
+  }
+
+  public removeCar(car:Car){
+    const index = this.cars.indexOf(car);
+    this.cars.splice(index,1);
   }
 
 }
