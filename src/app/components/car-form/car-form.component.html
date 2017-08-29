@@ -1,7 +1,7 @@
 <h1>New car</h1>
 <hr>
 <form #carForm="ngForm" (ngSubmit)="addCar(); carForm.reset();">
-	
+
 	<div class="form-group">
 		<label>Mark</label>
 		<input name="mark" #mark="ngModel" [(ngModel)]="newCar.mark"
@@ -95,6 +95,37 @@
 		</div>
 	</div>
 
+	<!-- Modal -->
+  <div *ngIf="previewShow" class="modal" style="display:block;" id="carPreview" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{newCar.mark}}</h4>
+        </div>
+        <div class="modal-body">
+          <p>Model:{{newCar.model}} ({{newCar.year}})</p>
+					<p>
+						Max speed:{{newCar.maxSpeed}}
+						Automatic:{{newCar.isAutomatic ? 'Yes':'No'}}
+						Engine:{{newCar.engine}}
+						Number of doors:{{newCar.numberOfDoors}}
+					</p>
+        </div>
+        <div class="modal-footer">
+					<button type="button" class="btn btn-warning" data-toggle="modal"
+						(click)="togglePreview();">Close
+					</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+	<button type="button" class="btn btn-warning" data-toggle="modal"
+		(click)="togglePreview();">Preview
+	</button>
 	<button type="button" class="btn btn-primary" [disabled]="carForm.pristine"
 				(click)="carForm.reset();">
 		Reset

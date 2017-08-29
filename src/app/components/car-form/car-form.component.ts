@@ -14,6 +14,7 @@ export class CarFormComponent implements OnInit {
   public years: number[] = [];
   public engineTypes : string[] = [];
   public newCar: Car = new Car();
+  public previewShow:boolean = false;
 
   constructor(private carsService: CarsService,
               private router:Router) { }
@@ -39,6 +40,9 @@ export class CarFormComponent implements OnInit {
     this.router.navigate(['cars']);
   }
 
-  
+  public togglePreview(){
+    this.previewShow = !this.previewShow;
+  }
+
 
 }
